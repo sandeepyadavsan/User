@@ -16,5 +16,10 @@ public class Test {
 	public String getUpdate() {
 		return "hello";
 	}
+	
+	@RequestMapping(value="/getDelete",method=RequestMethod.GET)
+	public String getDelete() {
+		return "hello";
+	}
 
 }
