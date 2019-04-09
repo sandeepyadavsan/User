@@ -12,5 +12,9 @@ public class Test {
 	public String getdata() {
 		return "hello";
 	}
+	@RequestMapping(value="/getUpdate",method=RequestMethod.GET)
+	public String getUpdate() {
+		return "hello";
+	}
 
 }
