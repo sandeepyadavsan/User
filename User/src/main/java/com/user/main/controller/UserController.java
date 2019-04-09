@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.user.main.domain.User;
+import com.user.main.exception.UserNotFoundException;
 import com.user.main.repository.UserRepository;
 
 @RestController
@@ -33,13 +34,12 @@ public class UserController {
 	@RequestMapping(value="/getUser/{usrid}",method=RequestMethod.GET)
 	public Optional<User> getUser(@PathVariable Integer usrid) {
 		
-		return userRepository.findById(usrid);
-		/*System.out.println("Id: "+usrid);
-		User usr=new User();
-				usr.setId(1);
-				usr.setName("Manish");
-				usr.setEmail("manishp2@kpit.com");
-		return usr;*/
+		Optional<User> user = userRepository.findById(usrid);
+		if(!user.isPresent())
+			throw new UserNotFoundException("User is not exist in the system: "+usrid);
+		
+		return user;
+	
 	}
 	
 	@RequestMapping(value="/getAllUser",method=RequestMethod.GET)
@@ -52,6 +52,10 @@ public class UserController {
 
 		
 		Optional<User> user=userRepository.findById(usrid);
+		
+		if(!user.isPresent())
+			throw new UserNotFoundException("User Id Not Found For Deletion: "+usrid);
+		
 		userRepository.deleteById(usrid);
 		return user;
 		
