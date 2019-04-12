@@ -14,7 +14,7 @@ public class UserServiceInterceptorAppConfig extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		System.out.println("Register Interceptor");
+		System.out.println("Register Interceptor ");
 		registry.addInterceptor(userServiceInterceptor);
 	}
 
