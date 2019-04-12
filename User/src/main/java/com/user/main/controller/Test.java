@@ -14,7 +14,7 @@ public class Test {
 	}
 	@RequestMapping(value="/getUpdate",method=RequestMethod.GET)
 	public String getUpdate() {
-		return "hello";
+		return "hellobye";
 	}
 	
 	@RequestMapping(value="/getDelete",method=RequestMethod.GET)
