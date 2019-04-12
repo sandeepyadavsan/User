@@ -15,7 +15,7 @@ public class UserServiceInterceptor implements HandlerInterceptor {
 	{
 		String req=request.getRequestURI().toString();
 		
-		System.out.println("PreHandler Executed.."+req);
+		System.out.println("PreHandler Executed..."+req);
 		return true;
 		
 	}
